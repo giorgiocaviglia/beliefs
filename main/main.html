@@ -1,0 +1,41 @@
+<div class="row">
+<div class="col-lg-12">
+<h1>Data</h1>
+<p>Lorem ipsum</p>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-12">
+<h3>Keywords Network</h3><img id="keywords-network" src="images/keywords_network.jpg" class="magnify"/>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-12">
+<h3>Concepts Network</h3><img id="concepts-network" src="images/concepts_network.jpg" class="magnify"/>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-12">
+<h3>Concepts/keywords Network</h3><img id="network" src="images/network.jpg" class="magnify"/>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-6">
+<h2>Keywords</h2>
+<p>The following</p>
+<input ng-model="searchKeyword.key" type="text" placeholder="search..." class="form-control margin-bottom"/>
+<div ng-show="!keywords.length" class="alert alert-warning">Loading keywords</div>
+<div ng-repeat="keyword in keywords | orderBy:'percentage':true | filter:searchKeyword" class="keyword">
+<div ng-style="{'width':keyword.percentage+'%'}" class="back"></div><span class="front">{{keyword.key}}</span><span ng-show="criteria=='count'" class="count">{{keyword.count}}</span><span ng-show="criteria=='entries'" class="count">{{keyword.count}}</span>
+</div>
+</div>
+<div class="col-lg-6">
+<h2>Concepts</h2>
+<p>The following are the top 100 concepts extracted from the beliefs. What is a concept? The concept tagging API is capable of making high-level abstractions by understanding how concepts relate, and can identify concepts that aren't necessarily directly referenced in the text.<a href="http://www.alchemyapi.com/products/alchemylanguage/concept-tagging/" target="_blank">More info here</a></p>
+<input ng-model="searchConcept.key" type="text" placeholder="search..." class="form-control margin-bottom"/>
+<div ng-show="!concepts.length" class="alert alert-warning">Loading concepts</div>
+<div ng-repeat="concept in concepts | orderBy:'percentage':true | filter:searchConcept" class="keyword concept">
+<div ng-style="{'width':concept.percentage+'%'}" class="back"></div><span class="front">{{concept.key}}</span><span ng-show="criteria=='count'" class="count">{{concept.count}}</span><span ng-show="criteria=='entries'" class="count">{{concept.count}}</span>
+</div>
+</div>
+</div>

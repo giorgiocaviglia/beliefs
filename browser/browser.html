@@ -1,0 +1,35 @@
+<div class="row">
+<div class="col-lg-12">
+<h2>Explore the Beliefs</h2>
+<p>You can explore the beliefs by filtering them [...]</p>
+<div class="margin-top">
+<h5>Keywords (click to filter)</h5>
+<div class="margin-bottom">
+<div ng-show="!keywords.length" class="margin-top alert alert-warning"><i class="fa fa-refresh fa-spin margin-right"></i><span>Loading keywords</span></div><span ng-repeat="keyword in keywords | orderBy:'key':false" ng-click="addKeyword(keyword)" ng-class="{'muted':keyword.muted, 'selected':keyword.selected}" class="tag">{{keyword.key}} </span>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-12">
+<div class="margin-top">
+<h5>Search</h5>
+<input ng-model="search.belief" type="text" placeholder="search in the beliefs" class="form-control margin-bottom"/>
+</div>
+<div class="margin-top"><strong>{{filteredEntries.length}} </strong><span ng-show="entries.length">beliefs </span>
+<div ng-show="search.belief.length" class="tag info">containing <strong>{{search.belief}}</strong><i ng-click="search.belief=''" class="fa fa-times-circle"></i></div>
+<div ng-repeat="k in filterKeywords" class="tag info">about <strong>{{k}}</strong><i ng-click="removeKeyword(k)" class="fa fa-times-circle"></i></div>
+<div ng-show="similarEntry" class="tag info">similar to <strong>{{similarEntry.belief}}</strong><i ng-click="removeSimilar()" class="fa fa-times-circle"></i></div>
+</div>
+<div class="margin-top"></div>
+<div ng-show="!entries.length" class="margin-top alert alert-warning"><i class="fa fa-refresh fa-spin margin-right"></i><span>Loading beliefs</span></div>
+<ul class="list-unstyled margin-top row">
+<li ng-repeat="entry in filteredEntries = (entries | filter:filterEntries | filter:search | filter:filterSimilar)" class="col-lg-3 col-md-4 col-sm-6">
+<div class="belief">
+<p ng-bind-html="entry.belief"></p>
+<div class="text-muted">{{entry.user}}</div><i ng-click="addSimilar(entry)" data-toggle="tooltip" data-placement="top" title="Similar" class="fa fa-magnet pull-right text-muted"></i>
+</div>
+</li>
+</ul>
+</div>
+</div>

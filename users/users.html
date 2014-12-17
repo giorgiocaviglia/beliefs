@@ -1,0 +1,11 @@
+<div class="row">
+<div class="col-lg-12">
+<ul class="list-unstyled row">
+<li ng-repeat="user in users | filter:filterUser" class="col-lg-3">
+<p ng-click="setSimilar(user.key)">{{user.key}}</p><strong>Keywords</strong>
+<div>{{user.values.keywords.join(', ')}}</div><strong>Concepts</strong>
+<div>{{user.values.concepts.join(', ')}}</div>
+</li>
+</ul>
+</div>
+</div>
