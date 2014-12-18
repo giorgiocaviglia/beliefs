@@ -18,6 +18,14 @@ angular.module('app')
       })
     }
 
+    $scope.clear = function(){
+      $scope.filterKeywords = []
+      $scope.similar = []
+      $scope.similarEntry = null;
+      $scope.search = {belief:''}
+      update();
+    }
+
     $scope.filterSimilar = function(entry){
       return !$scope.similar.length || $scope.similar.indexOf(entry.index) != -1;
     }
@@ -50,6 +58,8 @@ angular.module('app')
     $scope.addSimilar = function(entry){
       $scope.similar = entry.similar;
       $scope.similarEntry = entry;
+      $scope.filterKeywords = []
+      $scope.search = {belief:''}
       update();
     }
 

@@ -34,7 +34,19 @@ angular.module('app')
     .forEach(function(d){
       d.percentage = d.count / maxCount * 100;
     })
-    $("#network").imageLens({ lensSize: 250 });
+    //$("#network").imageLens({ lensSize: 250 });
+
+
+    var $section = $('#focal');
+    var $panzoom = $("#network").panzoom({
+      $zoomIn: $section.find(".zoom-in"),
+      $zoomOut: $section.find(".zoom-out"),
+    });
+
+    console.log($section.find(".zoom-in"))
+
+
+
   //  $("#alluvial").imageLens({ lensSize: 250 });
 
   //  $("#concepts-network").imageLens({ lensSize: 250 });

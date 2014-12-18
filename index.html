@@ -1,55 +1,55 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="app">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Beliefs</title>
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-<link href="http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,600,600italic,700,700italic|Roboto:400,300,300italic,100italic,100,400italic,700,700italic,900,900italic" rel="stylesheet" type="text/css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,600,600italic,700,700italic|Roboto:400,300,300italic,100italic,100,400italic,700,700italic,900,900italic" rel="stylesheet" type="text/css">
+  <base href="/"/>
+  <script>
+    document.write('<base href="' + document.location + '" />');
+  </script>
 
-<script>
-  document.write('<base href="' + document.location + '" />');
-</script>
-
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="app.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="app.css">
 
 
 </head>
 <body ng-controller="AppCtrl">
-<nav role="navigation" class="navbar navbar-default navbar-static-top">
-<div class="container">
-<div class="navbar-header">
-<button type="button" data-toggle="collapse" data-target="#navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-</div>
-<div id="navbar-collapse">
-<ul class="nav navbar-nav">
-<li data-ng-class="{'active' : location.path() == '/'}"><a href="/">Data</a></li>
-<li data-ng-class="{'active' : location.path() == '/browser'}"><a href="/browser">Explore the Beliefs</a></li>
-<li data-ng-class="{'active' : location.path() == '/users'}"><a href="/users">Users</a></li>
-</ul>
-</div>
-</div>
-</nav>
-<div class="container">
-<div ng-view></div>
-</div>
-<script src="scripts/jquery.min.js"></script>
-<script src="scripts/bootstrap.min.js"></script>
-<script src="scripts/d3.min.js"></script>
-<script src="scripts/jquery.imageLens.js"></script>
-<script src="scripts/angular.min.js"></script>
-<script src="scripts/angular-route.min.js"></script>
-<script src="scripts/angular-sanitize.min.js"></script>
-<script src="scripts/angular-strap.min.js"></script>
-<script src="scripts/angular-strap.tpl.min.js"></script>
-<script src="app.js"></script>
-<!-- views-->
-<script src="main/main.js"></script>
-<script src="browser/browser.js"></script>
-<script src="users/users.js"></script>
-<script src="components/graph/graph.js"></script>
-<script src="components/graph/graph-directive.js"></script>
+  <nav role="navigation" class="navbar navbar-default navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" data-toggle="collapse" data-target="#navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+      </div>
+      <div id="navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li data-ng-class="{'active' : location.path() == '/'}"><a href="/">Data</a></li>
+          <li data-ng-class="{'active' : location.path() == '/browser'}"><a href="/browser">Explore the Beliefs</a></li>
+          <!--<li data-ng-class="{'active' : location.path() == '/users'}"><a href="/users">Users</a></li>-->
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div ng-view></div>
+  </div>
+  <script src="scripts/jquery.min.js"></script>
+  <script src="scripts/bootstrap.min.js"></script>
+  <script src="scripts/d3.min.js"></script>
+  <script src="scripts/jquery.imageLens.js"></script>
+  <script src="scripts/jquery.panzoom.min.js"></script>
+  <script src="scripts/angular.min.js"></script>
+  <script src="scripts/angular-route.min.js"></script>
+  <script src="scripts/angular-sanitize.min.js"></script>
+  <script src="scripts/angular-strap.min.js"></script>
+  <script src="scripts/angular-strap.tpl.min.js"></script>
+  <script src="app.js"></script>
+  <!-- views-->
+  <script src="main/main.js"></script>
+  <script src="browser/browser.js"></script>
+  <script src="beliefs/beliefs.js"></script>
+  <script src="components/graph/graph.js"></script>
+  <script src="components/graph/graph-directive.js"></script>
 </body>
 </html>

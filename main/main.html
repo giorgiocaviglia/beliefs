@@ -1,24 +1,118 @@
+<div class="row margin-top">
+  <div class="col-lg-12">
+    <p>To get a better sense of the types of beliefs that <a href="http://www.atheistmindhumanistheart.com/vote-for-beliefs/", target="_blank">were entered,</a> we analyzed the 2804 beliefs through text mining and interactive visualizations. The results reveal a map of the most common concepts and keywords and how they relate to each other.</p>
+  </div>
+</div>
+
+<div class="lined">
+
+  <h3>What are the most common keywords?</h3>
+
+  <div class="row">
+    <div class="col-lg-6 col-md-6">
+      <p class="">Keywords are terms explicitly mentioned in the beliefs. Words with a similar basic meaning (e.g. children and child) have been grouped together and considered the same. On the left, it is possible to see the distribution of the top 100 keywords extracted. The number indicates the frequency of the term in the beliefs. The graph on the right shows the co-occurrences between the keywords. Each node represents a keyword and nodes are connected if they appear in the same belief. The size of the nodes is proportional to the frequency of the keywords in all the beliefs, while the width of the links shows how many times they occur together.</p>
+    </div>
+
+    <div class="col-lg-6 col-md-6">
+    <p>The network is highly interconnected, showing us that most of the beliefs share the same terms. The most common and interconnected terms can be found at the center of the graph. These are general concepts such as <i>life, world, love, human, love</i> and we can intend these as a common ground for many of the beliefs. Instead, in the periphery of the graph, we can find more specific concepts and clusters of similar/related terms, such as  <i>truth-reality-question-evidence</i> at the bottom right or <i>community-individual-freedom-treat-right</i> at the top.</p>
+    </div>
+
+</div>
+
+  <div class="row margin-top">
+
+    <div class="col-lg-3">
+
+      <input ng-model="searchKeyword.key" type="text" placeholder="search..." class="form-control margin-bottom"/>
+      <div class="contained">
+
+        <div ng-show="!keywords.length" class="alert alert-warning">Loading keywords</div>
+        <div ng-repeat="keyword in keywords | orderBy:'percentage':true | filter:searchKeyword" class="keyword">
+          <div ng-style="{'width':keyword.percentage+'%'}" class="back"></div><span class="front">{{keyword.key}}</span><span ng-show="criteria=='count'" class="count">{{keyword.count}}</span><span ng-show="criteria=='entries'" class="count">{{keyword.count}}</span>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="col-lg-9">
+      <img id="keywords-network" src="images/keywords_network.jpg" class="magnify"/>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="lined">
+
+
+<h3>What are the beliefs about?</h3>
+
 <div class="row">
-<div class="col-lg-12">
-<h1>Data</h1>
-<p>Lorem ipsum</p>
+  <div class="col-lg-6 col-md-6">
+    <p class="">The following are the top 100 concepts extracted from the beliefs. What is a concept? Concepts are <a href="http://en.wikipedia.org/wiki/Concept_mining" target="_blank">high-level abstractions</a> of the beliefs. They aren't necessarily directly referenced in the text but they can be implicitly related to the belief. On the left, it is possible to see the distribution of the top 100 concepts extracted. The number indicates the frequency of the concepts. The graph on the right shows the co-occurrences between the concepts: each node represents a concept and nodes are connected each other present in the same belief. The size of the nodes is proportional to the frequency of the concepts in all the beliefs, while the width of the links shows how many times they occur together.
+    </p>
+  </div>
+
+  <div class="col-lg-6 col-md-6">
+
+    <p>Similarly to the keywords graph above, here too we have a highly interconnected network. At the center of the graph, <i>Religion, Science, World, Psychology</i> appear as the most common concepts in the beliefs.</p>
+
+    </div>
+  </div>
+
+<div class="row margin-top">
+
+  <div class="col-lg-3">
+
+
+    <input ng-model="searchConcept.key" type="text" placeholder="search..." class="form-control margin-bottom"/>
+    <div class="contained">
+      <div ng-show="!concepts.length" class="alert alert-warning">Loading concepts</div>
+      <div ng-repeat="concept in concepts | orderBy:'percentage':true | filter:searchConcept" class="keyword concept">
+        <div ng-style="{'width':concept.percentage+'%'}" class="back"></div><span class="front">{{concept.key}}</span><span ng-show="criteria=='count'" class="count">{{concept.count}}</span><span ng-show="criteria=='entries'" class="count">{{concept.count}}</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col-lg-9">
+
+    <img id="concepts-network" src="images/concepts_network.jpg" class="magnify"/>
+
+  </div>
+
 </div>
+
 </div>
+
+<div class="lined">
+
+<h3>Concepts and keywords</h3>
+
+<p class="columns">The graph belows brings together keywords and concepts extracted from the beliefs. Green nodes represent keywords, while concepts are blue. Concepts and keywords are connected each other if present in the same belief. The size of the nodes is proportional to the frequency of the keywords or concepts in all the beliefs, while the width of the links shows how many times they occur together.
+
+
 <div class="row">
-<div class="col-lg-12">
-<h3>Keywords Network</h3><img id="keywords-network" src="images/keywords_network.jpg" class="magnify"/>
+
+  <div class="col-lg-12">
+    <div id="focal">
+      <div class="pull-right">
+        <a class="btn btn-primary zoom-out"><i class="fa fa-minus"></i></a>
+        <a class="btn btn-primary zoom-in"><i class="fa fa-plus"></i></a>
+      </div>
+      <div class="clearfix"></div>
+      <div class="margin-top">
+        <img id="network" src="images/network.jpg" class="magnify"/>
+      </div>
+    </div>
+  </div>
+
 </div>
+
 </div>
-<div class="row">
-<div class="col-lg-12">
-<h3>Concepts Network</h3><img id="concepts-network" src="images/concepts_network.jpg" class="magnify"/>
-</div>
-</div>
-<div class="row">
-<div class="col-lg-12">
-<h3>Concepts/keywords Network</h3><img id="network" src="images/network.jpg" class="magnify"/>
-</div>
-</div>
+
+
+<!--
 <div class="row">
 <div class="col-lg-6">
 <h2>Keywords</h2>
@@ -39,3 +133,4 @@
 </div>
 </div>
 </div>
+-->
