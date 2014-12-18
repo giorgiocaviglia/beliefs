@@ -12,8 +12,8 @@ angular.module('app')
         if (!scope.data) return;
 
         graph
-        .width(element.width())
-        .height(element.width())
+        .width(2000)
+        .height(2000)
     //    .showLabels(scope.showLabels)
         .on("update", function(){
           scope.color = graph.color().range().map(function(d,i){

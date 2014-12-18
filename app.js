@@ -19,10 +19,6 @@ angular.module('app', [
     templateUrl: 'users/users.html',
     controller: 'UsersCtrl'
   })
-  .when('/beliefs', {
-    templateUrl: 'beliefs/beliefs.html',
-    controller: 'BeliefsCtrl'
-  })
   .otherwise({redirectTo: '/'});
 
   $locationProvider.html5Mode(true);
