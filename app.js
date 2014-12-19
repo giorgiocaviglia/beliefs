@@ -6,7 +6,7 @@ angular.module('app', [
   'mgcrea.ngStrap'
 ])
 .config(['$routeProvider','$locationProvider', function($routeProvider, $locationProvider) {
-  $routeProvider
+  /*$routeProvider
   .when('/', {
     templateUrl: 'main/main.html',
     controller: 'MainCtrl'
@@ -20,8 +20,8 @@ angular.module('app', [
     controller: 'UsersCtrl'
   })
   .otherwise({redirectTo: '/'});
-
-  $locationProvider.html5Mode(true);
+*/
+  //$locationProvider.html5Mode(true);
 
 }])
 
@@ -31,6 +31,62 @@ angular.module('app', [
   $http.get('data/entries.json').
   success(function(data, status) {
     $scope.entries = data;
+
+    $http.get('data/keywords.json').
+    success(function(keywords, status) {
+
+      $scope.keywords = keywords;
+
+      var criterias = {
+        count: function(d){ d.percentage = d.count / maxCount * 100; },
+        entries: function(d){ d.percentage = d.entries.length / maxEntries * 100; }
+      }
+
+      $scope.criteria = 'count';
+
+      var maxCount = d3.max(keywords, function(d){ return d.count; })
+      var maxEntries = d3.max(keywords, function(d){ return d.entries.length; })
+
+      $scope.$watch('criteria', function(criteria){
+        $scope.keywords
+        .forEach(criterias[criteria])
+      })
+
+    })
+
+    $http.get('data/concepts.json').
+    success(function(concepts, status) {
+
+      $scope.concepts = concepts;
+
+      var maxCount = d3.max(concepts, function(d){ return d.count; })
+
+      $scope.concepts
+      .forEach(function(d){
+        d.percentage = d.count / maxCount * 100;
+      })
+
+      var $section = $('#keywords-focal');
+      $("#keywords-network").panzoom({
+        $zoomIn: $section.find(".zoom-in"),
+        $zoomOut: $section.find(".zoom-out"),
+      });
+
+      $section = $('#concepts-focal');
+      $("#concepts-network").panzoom({
+        $zoomIn: $section.find(".zoom-in"),
+        $zoomOut: $section.find(".zoom-out"),
+      });
+
+      $section = $('#focal');
+      $("#network").panzoom({
+        $zoomIn: $section.find(".zoom-in"),
+        $zoomOut: $section.find(".zoom-out"),
+      });
+
+    })
+
+
   })
 
 
